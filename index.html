@@ -695,7 +695,7 @@
         <button class="auth-btn" onclick="showLogin()">Login</button>
         <button class="auth-btn" onclick="showSignup()">Sign Up</button>
     </div>
-    <button class="admin-btn" onclick="openAdmin()">Admin Panel</button>
+   <button class="admin-btn" id="adminButton" onclick="checkAdminAccess()" style="display: none;">Admin Panel</button>
 </div>
             </nav>
         </div>
@@ -1116,7 +1116,37 @@ function updateDownloadHistory() {
         historyContainer.innerHTML = '<p style="color: #666; text-align: center; padding: 2rem;">No downloads yet. Start exploring content!</p>';
         return;
     }
-    
+    // Admin System
+const ADMIN_PASSWORD = 'trendinghits2007'; // Change this to your secret password
+let isAdmin = false;
+
+function checkAdminAccess() {
+    if (!isAdmin) {
+        const password = prompt('Enter admin password:');
+        if (password === ADMIN_PASSWORD) {
+            isAdmin = true;
+            alert('Admin access granted!');
+            openAdmin();
+        } else {
+            alert('Incorrect password!');
+        }
+    } else {
+        openAdmin();
+    }
+}
+
+function showAdminButton() {
+    // Show admin button for specific conditions
+    document.getElementById('adminButton').style.display = 'block';
+}
+
+// Show admin button only when you press a secret key combination
+document.addEventListener('keydown', function(e) {
+    // Press Ctrl+Shift+A to show admin panel
+    if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+        showAdminButton();
+    }
+});
     const historyHTML = currentUser.downloads.slice(-5).reverse().map(download => `
         <div class="history-item">
             <div>
