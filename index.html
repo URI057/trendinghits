@@ -139,7 +139,47 @@
         .admin-btn:hover {
             background: #ff5252;
         }
+.nav-buttons {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
 
+.auth-btn {
+    background: #10b981;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.auth-btn:hover {
+    background: #059669;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #10b981;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+}
         .search-section {
             background: #2d2d2d;
             padding: 2rem 0;
@@ -395,7 +435,65 @@
             padding: 2rem;
             position: relative;
         }
+/* Auth Modal Styles */
+.auth-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 3000;
+    overflow-y: auto;
+}
 
+.auth-content {
+    max-width: 400px;
+    margin: 5rem auto;
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.auth-title {
+    color: #1e3a8a;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.auth-switch {
+    text-align: center;
+    margin-top: 1rem;
+    color: #666;
+}
+
+.auth-switch a {
+    color: #1e3a8a;
+    text-decoration: none;
+    font-weight: bold;
+}
         .close-admin {
             position: absolute;
             top: 1rem;
@@ -509,110 +607,7 @@
         }
 
         /* Monetization Styles */
-        .premium-badge {
-            background: linear-gradient(45deg, #ffd700, #ffed4e);
-            color: #1e3a8a;
-            padding: 0.25rem 0.75rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-left: 0.5rem;
-        }
-
-        .vip-download {
-            background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
-            color: #1e3a8a;
-            font-weight: bold;
-        }
-
-        .donate-section {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            margin: 2rem 0;
-            border: 2px solid #10b981;
-        }
-
-        .donate-btn {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: white;
-            padding: 0.75rem 2rem;
-            border: none;
-            border-radius: 25px;
-            font-weight: bold;
-            cursor: pointer;
-            margin: 0.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .donate-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .premium-section {
-            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-            color: #1e3a8a;
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-            text-align: center;
-        }
-
-        .premium-btn {
-            background: #1e3a8a;
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 25px;
-            font-weight: bold;
-            cursor: pointer;
-            margin: 1rem 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .premium-btn:hover {
-            background: #3b82f6;
-            transform: translateY(-2px);
-        }
-
-        .affiliate-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .affiliate-card {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-            border: 1px solid #e5e7eb;
-            transition: transform 0.3s ease;
-        }
-
-        .affiliate-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .affiliate-btn {
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .affiliate-btn:hover {
-            transform: scale(1.05);
+        
         }
 
         .revenue-tracker {
@@ -688,8 +683,20 @@
                     <li><a href="#games">Games</a></li>
                     <li><a href="#apps">Apps</a></li>
                 </ul>
-                <button class="admin-btn" onclick="openAdmin()">Admin Panel</button>
-                <button class="admin-btn" onclick="toggleRevenueDashboard()" style="background: #10b981; margin-left: 0.5rem;">💰 Revenue</button>
+               <div class="nav-buttons">
+    <div id="userSection" style="display: none;">
+        <div class="user-profile">
+            <div class="profile-pic" id="profilePic">U</div>
+            <span id="userName">User</span>
+            <button class="auth-btn" onclick="logout()">Logout</button>
+        </div>
+    </div>
+    <div id="guestSection">
+        <button class="auth-btn" onclick="showLogin()">Login</button>
+        <button class="auth-btn" onclick="showSignup()">Sign Up</button>
+    </div>
+    <button class="admin-btn" onclick="openAdmin()">Admin Panel</button>
+</div>
             </nav>
         </div>
     </header>
@@ -733,11 +740,7 @@
     <main class="main-content">
         <div class="container" style="display: contents;">
             <div class="content-area">
-                <!-- Premium Membership Promotion -->
-                <div class="premium-section">
-                    <h2 style="margin-bottom: 1rem;">🌟 Upgrade to TrendingHits Premium!</h2>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
-                        <div>
+              
                             <h4>Free Account</h4>
                             <p>• Ads between downloads<br>• Standard download speed<br>• Limited access</p>
                         </div>
@@ -826,21 +829,59 @@
                     <em>Game downloads & platforms</em>
                 </div>
 
-                <!-- Donation Section -->
-                <div class="donate-section">
-                    <h3 style="color: #10b981; margin-bottom: 1rem;">💖 Support TrendingHits</h3>
-                    <p style="margin-bottom: 1rem; color: #666;">Help us keep the site running and ad-free!</p>
-                    <button class="donate-btn" onclick="donatePayPal()">💳 PayPal</button><br>
-                    <button class="donate-btn" onclick="donateCrypto('bitcoin')">₿ Bitcoin</button>
-                    <button class="donate-btn" onclick="donateCrypto('ethereum')">Ξ Ethereum</button>
-                    <div style="margin-top: 1rem; font-size: 0.8rem; color: #666;">
-                        Total Donations This Month: $<span id="donationTotal">127.50</span>
-                    </div>
+                
                 </div>
             </div>
         </div>
     </main>
+<!-- Authentication Modal -->
+<div class="auth-modal" id="authModal">
+    <div class="auth-content">
+        <button class="close-modal" onclick="closeAuth()">&times;</button>
+        
+        <!-- Login Form -->
+        <div id="loginForm">
+            <h2 class="auth-title">Login to TrendingHits</h2>
+            <form class="auth-form" onsubmit="login(event)">
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" id="loginEmail" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-input" id="loginPassword" required placeholder="Enter your password">
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+            <div class="auth-switch">
+                Don't have an account? <a href="#" onclick="switchToSignup()">Sign up here</a>
+            </div>
+        </div>
 
+        <!-- Signup Form -->
+        <div id="signupForm" style="display: none;">
+            <h2 class="auth-title">Join TrendingHits</h2>
+            <form class="auth-form" onsubmit="signup(event)">
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-input" id="signupName" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" id="signupEmail" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-input" id="signupPassword" required placeholder="Create a password">
+                </div>
+                <button type="submit" class="submit-btn">Sign Up</button>
+            </form>
+            <div class="auth-switch">
+                Already have an account? <a href="#" onclick="switchToLogin()">Login here</a>
+            </div>
+        </div>
+    </div>
+</div>
     <section class="stats-section">
         <div class="container">
             <h2 style="color: #1e3a8a; margin-bottom: 1rem;">Platform Statistics</h2>
@@ -884,8 +925,6 @@
                         <option value="movies">Movies</option>
                         <option value="series">TV Series</option>
                         <option value="music">Music</option>
-                        <option value="games">Games</option>
-                        <option value="apps">Apps</option>
                     </select>
                 </div>
 
@@ -904,14 +943,7 @@
                     <textarea class="form-textarea" id="description" placeholder="Enter content description..."></textarea>
                 </div>
 
-                <div class="form-group">
-                    <label class="form-label">Premium Content?</label>
-                    <select class="form-select" id="premiumContent">
-                        <option value="false">Free Content</option>
-                        <option value="true">Premium Only</option>
-                    </select>
-                </div>
-
+                
                 <div class="form-group">
                     <label class="form-label">Download Link</label>
                     <input type="url" class="form-input" id="downloadLink" placeholder="https://..." required>
@@ -946,7 +978,195 @@
 
     <script>
         // Content management system
-        let contentDatabase = [];
+        // User Management System
+let users = JSON.parse(localStorage.getItem('trendinghits_users') || '[]');
+let currentUser = JSON.parse(localStorage.getItem('trendinghits_current_user') || 'null');
+
+// User Authentication Functions
+function showLogin() {
+    document.getElementById('authModal').style.display = 'block';
+    document.getElementById('loginForm').style.display = 'block';
+    document.getElementById('signupForm').style.display = 'none';
+}
+
+function showSignup() {
+    document.getElementById('authModal').style.display = 'block';
+    document.getElementById('loginForm').style.display = 'none';
+    document.getElementById('signupForm').style.display = 'block';
+}
+
+function closeAuth() {
+    document.getElementById('authModal').style.display = 'none';
+}
+
+function switchToSignup() {
+    document.getElementById('loginForm').style.display = 'none';
+    document.getElementById('signupForm').style.display = 'block';
+}
+
+function switchToLogin() {
+    document.getElementById('loginForm').style.display = 'block';
+    document.getElementById('signupForm').style.display = 'none';
+}
+
+function signup(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById('signupName').value;
+    const email = document.getElementById('signupEmail').value;
+    const password = document.getElementById('signupPassword').value;
+    
+    // Check if user already exists
+    if (users.find(user => user.email === email)) {
+        alert('Account with this email already exists!');
+        return;
+    }
+    
+    // Create new user
+    const newUser = {
+        id: 'user_' + Date.now(),
+        name: name,
+        email: email,
+        password: password, // In production, hash this!
+        joinDate: new Date().toLocaleDateString(),
+        downloads: [],
+        favorites: [],
+        downloadCount: 0
+    };
+    
+    users.push(newUser);
+    localStorage.setItem('trendinghits_users', JSON.stringify(users));
+    
+    // Auto login
+    currentUser = newUser;
+    localStorage.setItem('trendinghits_current_user', JSON.stringify(currentUser));
+    
+    updateUserInterface();
+    closeAuth();
+    updateStats();
+    
+    alert('Account created successfully! Welcome to TrendingHits!');
+}
+
+function login(event) {
+    event.preventDefault();
+    
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+    
+    const user = users.find(u => u.email === email && u.password === password);
+    
+    if (user) {
+        currentUser = user;
+        localStorage.setItem('trendinghits_current_user', JSON.stringify(currentUser));
+        
+        updateUserInterface();
+        closeAuth();
+        
+        alert('Welcome back, ' + user.name + '!');
+    } else {
+        alert('Invalid email or password!');
+    }
+}
+
+function logout() {
+    currentUser = null;
+    localStorage.removeItem('trendinghits_current_user');
+    updateUserInterface();
+    alert('Logged out successfully!');
+}
+
+function updateUserInterface() {
+    const userSection = document.getElementById('userSection');
+    const guestSection = document.getElementById('guestSection');
+    const userDashboard = document.getElementById('userDashboard');
+    
+    if (currentUser) {
+        // Show user info
+        userSection.style.display = 'block';
+        guestSection.style.display = 'none';
+        
+        document.getElementById('profilePic').textContent = currentUser.name.charAt(0).toUpperCase();
+        document.getElementById('userName').textContent = currentUser.name;
+        
+        // Show dashboard
+        if (userDashboard) {
+            userDashboard.style.display = 'block';
+            document.getElementById('dashboardName').textContent = currentUser.name;
+            document.getElementById('userDownloads').textContent = currentUser.downloadCount;
+            document.getElementById('userFavorites').textContent = currentUser.favorites.length;
+            document.getElementById('userJoinDate').textContent = currentUser.joinDate;
+            
+            updateDownloadHistory();
+        }
+    } else {
+        // Show guest interface
+        userSection.style.display = 'none';
+        guestSection.style.display = 'block';
+        
+        if (userDashboard) {
+            userDashboard.style.display = 'none';
+        }
+    }
+}
+
+function updateDownloadHistory() {
+    const historyContainer = document.getElementById('downloadHistory');
+    if (!currentUser || currentUser.downloads.length === 0) {
+        historyContainer.innerHTML = '<p style="color: #666; text-align: center; padding: 2rem;">No downloads yet. Start exploring content!</p>';
+        return;
+    }
+    
+    const historyHTML = currentUser.downloads.slice(-5).reverse().map(download => `
+        <div class="history-item">
+            <div>
+                <strong>${download.title}</strong><br>
+                <small style="color: #666;">${download.date}</small>
+            </div>
+            <div style="color: #10b981; font-weight: bold;">✓ Downloaded</div>
+        </div>
+    `).join('');
+    
+    historyContainer.innerHTML = historyHTML;
+}
+        let contentDatabase = [
+    {
+        id: 'tower-prep-s1e02',
+        title: 'Tower Prep S01E02 - Election',
+        category: 'series',
+        size: '109MB',
+        quality: 'HD 720p',
+        date: 'Sept 2024',
+        icon: '📺',
+        description: 'The students face school elections and discover more about their abilities.',
+        downloadLink: 'https://drive.google.com/uc?export=download&id=1Xe99XM5q5OMlLjebXbUEhXfn023fZs0Z',
+        premium: false
+    },
+    {
+        id: 'tower-prep-s1e03',
+        title: 'Tower Prep S01E03 - Trust',
+        category: 'series',
+        size: '112MB',
+        quality: 'HD 720p',
+        date: 'Sept 2024',
+        icon: '📺',
+        description: 'Trust becomes crucial as Ian and friends face new challenges.',
+        downloadLink: 'https://drive.google.com/uc?export=download&id=1JGFnzrsTX_Xpq9SrYScubt_E9F_pKkke',
+        premium: false
+    },
+    {
+        id: 'tower-prep-s1e04',
+        title: 'Tower Prep S01E04 - Monitored',
+        category: 'series',
+        size: '114MB',
+        quality: 'HD 720p',
+        date: 'Sept 2024',
+        icon: '📺',
+        description: 'Students realize they are being monitored more closely than expected.',
+        downloadLink: 'https://drive.google.com/uc?export=download&id=1lqUdxsUjbFKGlDTF6-ZJW5szGdArvouP',
+        premium: false
+    }
+];
 
         // Revenue tracking
         let revenueData = {
@@ -992,8 +1212,6 @@
                 'movies': '🎬',
                 'series': '📺',
                 'music': '🎵',
-                'games': '🎮',
-                'apps': '📱'
             };
 
             // Add to database
@@ -1059,7 +1277,65 @@
 
         // Download content with monetization
         function downloadContent(contentId) {
-            const content = contentDatabase.find(item => item.id === contentId);
+    const content = contentDatabase.find(item => item.id === contentId);
+    
+    if (content) {
+        // Track download for logged-in users only
+        if (currentUser) {
+            const downloadRecord = {
+                contentId: contentId,
+                title: content.title,
+                category: content.category,
+                date: new Date().toLocaleDateString(),
+                timestamp: Date.now()
+            };
+            
+            // Add to user's download history
+            currentUser.downloads.push(downloadRecord);
+            currentUser.downloadCount++;
+            
+            // Update stored user data
+            const userIndex = users.findIndex(u => u.id === currentUser.id);
+            if (userIndex !== -1) {
+                users[userIndex] = currentUser;
+                localStorage.setItem('trendinghits_users', JSON.stringify(users));
+                localStorage.setItem('trendinghits_current_user', JSON.stringify(currentUser));
+            }
+            
+            // Update UI
+            updateUserInterface();
+        }
+        
+        // Start download for everyone (guests and users)
+        if (content.downloadLink && !content.downloadLink.includes('example.com')) {
+            // Real download link
+            window.open(content.downloadLink, '_blank');
+            alert(`Downloading: ${content.title}\nSize: ${content.size}\n\nDownload started in new tab!`);
+        } else {
+            // Demo download
+            alert(`Downloading: ${content.title}\nSize: ${content.size}\n\nThis is a demo - in production, this would start the download.`);
+        }
+        
+        // Update download count
+        updateDownloadCount();
+        
+        // Encourage guests to sign up (but don't force)
+        if (!currentUser) {
+            setTimeout(() => {
+                if (confirm('🌟 Create a free account to track your downloads and get personalized recommendations!\n\nSign up now?')) {
+                    showSignup();
+                }
+            }, 2000);
+        } else {
+            // Show success message for logged-in users
+            setTimeout(() => {
+                alert(`✅ Download tracked!\n\nYou've downloaded ${currentUser.downloadCount} items total.`);
+            }, 1000);
+        }
+    } else {
+        alert('Content not found!');
+    }
+}
             
             if (content && content.premium && !userSession.isPremium) {
                 // Show premium upgrade prompt
@@ -1132,9 +1408,10 @@
 
         // Update statistics
         function updateStats() {
-            document.getElementById('totalContent').textContent = contentDatabase.length;
-            updatePageTitle(); // Update SEO title
-        }
+    document.getElementById('totalContent').textContent = contentDatabase.length;
+    document.getElementById('totalUsers').textContent = users.length;
+    updatePageTitle(); // Update SEO title
+}
 
         // Search on Enter key
         document.getElementById('searchInput').addEventListener('keypress', function(e) {
@@ -1145,9 +1422,10 @@
 
         // Initialize the application
         document.addEventListener('DOMContentLoaded', function() {
-            renderContent();
-            updateStats();
-        });
+    renderContent();
+    updateStats();
+    updateUserInterface(); // Initialize user interface
+});
 
         // Auto-update stats periodically (simulate real-time updates)
         setInterval(() => {
